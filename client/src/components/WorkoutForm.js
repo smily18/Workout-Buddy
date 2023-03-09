@@ -15,13 +15,16 @@ const WorkoutForm = () => {
 
     const workout = { title, load, reps };
 
-    const response = await fetch('https://workoutbuddy-vhma.onrender.com'+"/api/workouts", {
-      method: "POST",
-      body: JSON.stringify(workout),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      "https://workoutbuddy-vhma.onrender.com" + "/api/workouts",
+      {
+        method: "POST",
+        body: JSON.stringify(workout),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     const json = await response.json();
 
     if (!response.ok) {
@@ -48,8 +51,7 @@ const WorkoutForm = () => {
         type="text"
         onChange={(e) => setTitle(e.target.value)}
         value={title}
-        className={empty.includes('title') ? "error" : " "}
-        
+        className={empty.includes("title") ? "error" : " "}
       />
 
       <label>Load (in kg):</label>
@@ -57,7 +59,7 @@ const WorkoutForm = () => {
         type="number"
         onChange={(e) => setLoad(e.target.value)}
         value={load}
-        className={empty.includes('load') ? "error" : ""}
+        className={empty.includes("load") ? "error" : ""}
       />
 
       <label>Number of Reps:</label>
@@ -65,7 +67,7 @@ const WorkoutForm = () => {
         type="number"
         onChange={(e) => setReps(e.target.value)}
         value={reps}
-        className={empty.includes('reps') ? "error" : ""}
+        className={empty.includes("reps") ? "error" : ""}
       />
 
       <button>Add Workout</button>
