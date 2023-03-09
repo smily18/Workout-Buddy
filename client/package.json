@@ -1,7 +1,5 @@
 {
   "name": "client",
-  "homepage": "https://workoutbuddy-vhma.onrender.com/",
-  "proxy": "https://workoutbuddy-vhma.onrender.com",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
