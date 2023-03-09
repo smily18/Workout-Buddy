@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use("https://workoutbuddy-vhma.onrender.com/api/workouts", workoutRoutes);
+app.use("/api/workouts", workoutRoutes);
 
 // connect to db
 mongoose
