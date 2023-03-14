@@ -12,11 +12,14 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors({
-  origin:["https://localhost:4000","https://mern-app.onrender.com"]
-}));
+app.use(
+  cors({
+    origin: ["https://localhost:4000", "https://mern-workout-app.onrender.com"],
+  })
+);
 
 app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
   console.log(req.path, req.method);
   next();
 });
@@ -33,7 +36,7 @@ app.use("/api/workouts", workoutRoutes);
 // }
 
 // connect to db
-const PORT=process.env.PORT || 4000;
+const PORT = process.env.PORT || 4000;
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
