@@ -12,7 +12,9 @@ const app = express();
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cors());
+app.use(cors({
+  origin:["https://localhost:4000","https://mern-app.onrender.com"]
+}));
 
 app.use((req, res, next) => {
   console.log(req.path, req.method);
@@ -23,12 +25,12 @@ app.use((req, res, next) => {
 
 app.use("/api/workouts", workoutRoutes);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("../client/build"));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-  });
-}
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static("../client/build"));
+//   app.get("*", (req, res) => {
+//     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+//   });
+// }
 
 // connect to db
 mongoose
