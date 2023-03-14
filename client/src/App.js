@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Navbar from './components/Navbar'
 
+export const URL = process.env.REACT_APP_URL;
+
 function App() {
 
   return (

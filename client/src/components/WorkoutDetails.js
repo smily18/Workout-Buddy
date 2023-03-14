@@ -2,12 +2,13 @@ import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 //date-fns
 import { formatDistanceToNow } from "date-fns";
+import { URL} from "../App";
 
 const WorkoutDetails = ({ workout }) => {
   const { dispatch } = useWorkoutsContext();
 
   const handleClick = async () => {
-    const response = await fetch("/api/workouts/" + workout._id, {
+    const response = await fetch(`${URL}/api/workouts` + workout._id, {
       method: "DELETE",
     });
     const json = await response.json();

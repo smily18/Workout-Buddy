@@ -33,12 +33,13 @@ app.use("/api/workouts", workoutRoutes);
 // }
 
 // connect to db
+const PORT=process.env.PORT || 4000;
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("connected to database");
     // listen to port
-    app.listen(process.env.PORT || 4000, () => {
+    app.listen(PORT, () => {
       console.log("listening for requests on port", process.env.PORT);
     });
   })
